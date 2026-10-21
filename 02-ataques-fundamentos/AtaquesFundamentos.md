@@ -11,7 +11,7 @@ en mi propia red doméstica
 ## Paso 1: Descubrimiento de hosts
 Comando usado: `nmap -sn 192.168.0.0/24`
 Resultado: Se encontró 12 dispositivos activos
-![alt text](image-1.png)
+![Escaneo de hosts](img01.png)
 
 ## Paso 2: Escaneo de puertos
 Comando usado: `nmap -sV 192.168.0.8`
@@ -22,7 +22,7 @@ Resultado: Se identificó un dispositivo activo con 5 puertos abiertos relevante
 - **8443/tcp** - `open` - `ssl/https-alt?`
 - **9000/tcp** - `open` - `ssl/cslistener?`
 - **Dirección MAC del objetivo:** `D2:F2:30:46:BD:61` (Unknown)
-![alt text](image-2.png)
+![Escaneo de puertos](img02.png)
 
 ## Hallazgos y reflexión
 - ¿Qué puertos estaban abiertos que no esperaba?
