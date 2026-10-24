@@ -19,7 +19,7 @@
 ## 3. Metodología
 La auditoría se desarrolló siguiendo 6 fases estructuradas desde la VM con Kali Linux:
 
-1. **Fase 0 (Preparación):**w
+1. **Fase 0 (Preparación):**
     Creación de carpeta principal y sus subcarpetas de evidencia y documentación
     [img01.png]
 
