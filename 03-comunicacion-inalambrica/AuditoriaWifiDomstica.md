@@ -21,7 +21,7 @@ La auditoría se desarrolló siguiendo 6 fases estructuradas desde la VM con Kal
 
 1. **Fase 0 (Preparación):**
     Creación de carpeta principal y sus subcarpetas de evidencia y documentación
-    (/documentacion/img01.png)
+    (../evidencia/img01.png)
 
 2. **Fase 1 (Inventario):** 
     Mapeo de activos conectados y conciliación entre el panel de administración del router y el descubrimiento ARP/IP con `sudo nmap -sn 192.168.0.0/24` desde Kali.
