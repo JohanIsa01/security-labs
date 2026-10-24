@@ -21,12 +21,12 @@ La auditoría se desarrolló siguiendo 6 fases estructuradas desde la VM con Kal
 
 1. **Fase 0 (Preparación):**
     Creación de carpeta principal y sus subcarpetas de evidencia y documentación
-    ![Fase 0 - Preparación](evidencia/img01.png)
+    ![Fase 0](evidencia/img01.png)
 
 2. **Fase 1 (Inventario):** 
     Mapeo de activos conectados y conciliación entre el panel de administración del router y el descubrimiento ARP/IP con `sudo nmap -sn 192.168.0.0/24` desde Kali.
-    [img02.png]
-    [img03.png]
+    ![Fase 1.1](evidencia/img02.png)
+    ![Fase 1.2](evidencia/img03.png)
 
 3. **Fase 2 (Revisión de Configuración):**  
     Se realizó una inspección detallada de los parámetros de seguridad y estado de la red en el panel de administración del router ARRIS TG2482A, documentando los siguientes puntos críticos:
@@ -40,15 +40,15 @@ La auditoría se desarrolló siguiendo 6 fases estructuradas desde la VM con Kal
 
 4. **Fase 3 (Análisis de Exposición):** 
     Se ejecutó un escaneo de detección de versiones de servicio (`sudo nmap -sV 192.168.0.1/24`) sobre la subred local para identificar la superficie de ataque de la infraestructura
-    [img04.png]
+    ![Fase 3.1](evidencia/img04.png)
 
     * **c Gateway (192.168.0.1 - ARRIS):** Se identificaron los servicios web de gestión `lighttpd` en los puertos `80/tcp` y `443/tcp`. Adicionalmente, se confirmó la exposición del servicio `MiniUPnP 1.9` en el puerto `5000/tcp`, lo que confirma la apertura dinámica de puertos sin filtrado previo.
 
     * **Endpoints Internos (192.168.0.2):** Se detectaron puertos de recursos compartidos de Windows `445/tcp (SMB)` y `135/tcp (RPC)` expuestos en la red local.
 
     * **Dispositivos Smart/IoT (192.168.0.13 - 192.168.0.15):** Exposición de puertos de transmisión de medios Google Cast (`8008/tcp`, `8009/tcp` - Ninja Sphere Chromecast driver
-        [img05.png]
-        [img06.png]
+        ![Fase 3.2](evidencia/img05.png)
+        ![Fase 3.3](evidencia/img06.png)
 
 5. **Fase 4 (Informe de Hallazgos):** 
     Clasificación del riesgo mediante la matriz `Probabilidad × Impacto` y redacción de recomendaciones
@@ -78,4 +78,4 @@ La auditoría se desarrolló siguiendo 6 fases estructuradas desde la VM con Kal
     ### 5.2. Verificación Post-Remediación (Before / After)
     Para comprobar la efectividad de las medidas, se ejecutó nuevamente el escaneo de puertos de control sobre la pasarela residencial (`192.168.0.1`) desde la máquina virtual:
     sudo nmap -sV 192.168.0.1 
-        [img07.png]
+        ![Fase 5](evidencia/img07.png)
