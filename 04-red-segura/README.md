@@ -1,30 +1,30 @@
 
-# Diseño de Red Segura para PyME — Clínica Dental "Sonrisa Integral"
+# Diseño de Red Segura para Clínica Dental "Sonrisa Integral"
 
-Proyecto práctico correspondiente al **Módulo 6**, enfocado en el diseño lógico, segmentación mediante VLANs, control de acceso perimetral e interno (ACLs/Firewall) y validación funcional en entorno simulado.
+Proyecto práctico enfocado en el diseño lógico, segmentación mediante VLANs, control de acceso perimetral e interno (ACLs/Firewall) y validación funcional en entorno simulado
 
 ---
 
 ## 1. Escenario y Activos Críticos (Fase 0)
 
-* **Organización ficticia:** Clínica Dental "Sonrisa Integral" (sede única, 25 empleados entre odontólogos, recepcionistas, personal administrativo y soporte externo).
+* **Organización ficticia:** Clínica Dental "Sonrisa Integral" (25 empleados entre odontólogos, recepcionistas, personal administrativo y soporte externo)
 * **Infraestructura tecnológica:**
-  * 15 estaciones de trabajo (recepción, consultorios y administración).
-  * 1 servidor interno de archivos e historias clínicas electrónicas (HCE).
-  * 1 servidor web público (portal informativo y reserva de citas online).
-  * 3 impresoras de red multifunción.
-  * 1 Access Point empresarial con doble SSID (Corporativo e Invitados).
-  * 6 cámaras de videovigilancia IP (pasillos, recepción y acceso principal).
+  * 15 estaciones de trabajo (recepción, consultorios y administración)
+  * 1 servidor interno de archivos e historias clínicas electrónicas (HCE)
+  * 1 servidor web público (portal informativo y reserva de citas online)
+  * 3 impresoras de red multifunción
+  * 1 Access Point empresarial con doble SSID (Corporativo e Invitados)
+  * 6 cámaras de videovigilancia IP (pasillos, recepción y acceso principal)
 
 ### Inventario de Activos y Análisis de Impacto
 
 | Activo | Descripción | Nivel de Criticidad | Impacto si se compromete o pierde |
 | :--- | :--- | :---: | :--- |
-| **Base de Datos y Servidor HCE** | Historias clínicas, radiografías y datos personales de pacientes. | **Crítico** | Sanciones legales por fuga de datos sensibles, pérdida de confianza y paralización operativa. |
-| **Servidor Web Público** | Sitio web de la clínica y formulario de citas. | **Alto** | Suplantación de identidad (defacement), caída del canal de captación o punto de pivote hacia la red interna. |
-| **Estaciones de Recepción/Admin** | Equipos que gestionan facturación, pagos y agendas. | **Alto** | Fraude financiero, robo de credenciales o infección por ransomware. |
-| **Cámaras IP (IoT)** | Sistema de monitoreo físico 24/7. | **Medio** | Espionaje físico o uso de los dispositivos como botnet dentro de la red. |
-| **Red Wi-Fi de Invitados** | Acceso a Internet para pacientes en sala de espera. | **Bajo** | No contiene activos propios, pero representa una frontera de entrada no confiable. |
+| **Base de Datos y Servidor HCE** | Historias clínicas, radiografías y datos personales de pacientes | **Crítico** | Sanciones legales por fuga de datos sensibles, pérdida de confianza y paralización operativa |
+| **Servidor Web Público** | Sitio web de la clínica y formulario de citas | **Alto** | Suplantación de identidad (defacement), caída del canal de captación o punto de pivote hacia la red interna |
+| **Estaciones de Recepción/Admin** | Equipos que gestionan facturación, pagos y agendas | **Alto** | Fraude financiero, robo de credenciales o infección por ransomware |
+| **Cámaras IP (IoT)** | Sistema de monitoreo físico 24/7 | **Medio** | Espionaje físico o uso de los dispositivos como botnet dentro de la red |
+| **Red Wi-Fi de Invitados** | Acceso a Internet para pacientes en sala de espera | **Bajo** | No contiene activos propios, pero representa una frontera de entrada no confiable |
 
 ---
 
@@ -32,11 +32,11 @@ Proyecto práctico correspondiente al **Módulo 6**, enfocado en el diseño lóg
 
 | ID | Amenaza | Vector de Ataque | Activo Afectado | Control de Red Mitigante |
 | :--- | :--- | :--- | :--- | :--- |
-| **AM-01** | **Movimiento lateral desde Wi-Fi de Invitados** | Un paciente malicioso conectado al Wi-Fi público escanea la red e intenta acceder al servidor HCE o impresoras. | Servidor HCE, LAN Empleados | Aislamiento total de VLAN Invitados (`VLAN 40`), bloqueo de tráfico RFC1918 (redes privadas) en el firewall y *Client Isolation* en el AP. |
-| **AM-02** | **Compromiso del Servidor Web expuesto** | Explotación de una vulnerabilidad web (ej. SQLi/RCE) para saltar desde el servidor web hacia la red interna. | Servidor Web, Servidor HCE | Ubicación del servidor en una **DMZ** (`VLAN 30`) con bloqueo estricto de conexiones salientes iniciadas desde DMZ hacia LAN o Servidores. |
-| **AM-03** | **Propagación de Ransomware / Malware** | Un empleado abre un adjunto malicioso por correo y el malware intenta cifrar toda la red y cámaras. | LAN Empleados, Servidor HCE, IoT | Segmentación por zonas, firewall inter-VLAN permitiendo solo puertos específicos (SMB/HTTPS) y bloqueo de administración desde la LAN de usuarios. |
-| **AM-04** | **Secuestro de Cámaras IP (IoT)** | Firmware desactualizado o credenciales débiles en cámaras IP utilizadas para pivotar a equipos internos. | Cámaras IP, Red Interna | Reclusión en `VLAN 50` (IoT) sin acceso a Internet saliente directo y sin permisos para iniciar tráfico hacia otras VLANs. |
-| **AM-05** | **Acceso no autorizado a Gestión de Red** | Un usuario interno o atacante intenta acceder por SSH/Web a la consola del firewall, switches o AP. | Equipos de Red | Creación de una `VLAN 99` (Gestión) dedicada, accesible únicamente desde la estación de administración de TI mediante SSH/HTTPS. |
+| **AM-01** | **Movimiento lateral desde Wi-Fi de Invitados** | Un paciente malicioso conectado al Wi-Fi público escanea la red e intenta acceder al servidor HCE o impresoras | Servidor HCE, LAN Empleados | Aislamiento total de VLAN Invitados (`VLAN 40`), bloqueo de tráfico RFC1918 (redes privadas) en el firewall y *Client Isolation* en el AP |
+| **AM-02** | **Compromiso del Servidor Web expuesto** | Explotación de una vulnerabilidad web para saltar desde el servidor web hacia la red interna | Servidor Web, Servidor HCE | Ubicación del servidor en una **DMZ** (`VLAN 30`) con bloqueo estricto de conexiones salientes iniciadas desde DMZ hacia LAN o Servidores |
+| **AM-03** | **Propagación de Ransomware / Malware** | Un empleado abre un adjunto malicioso por correo y el malware intenta cifrar toda la red y cámaras | LAN Empleados, Servidor HCE, IoT | Segmentación por zonas, firewall inter-VLAN permitiendo solo puertos específicos (SMB/HTTPS) y bloqueo de administración desde la LAN de usuarios |
+| **AM-04** | **Secuestro de Cámaras IP (IoT)** | Firmware desactualizado o credenciales débiles en cámaras IP utilizadas para pivotar a equipos internos | Cámaras IP, Red Interna | Reclusión en `VLAN 50` (IoT) sin acceso a Internet saliente directo y sin permisos para iniciar tráfico hacia otras VLANs |
+| **AM-05** | **Acceso no autorizado a Gestión de Red** | Un usuario interno o atacante intenta acceder por SSH/Web a la consola del firewall, switches o AP | Equipos de Red | Creación de una `VLAN 99` (Gestión) dedicada, accesible únicamente desde la estación de administración de TI mediante SSH/HTTPS. |
 
 ---
 
@@ -54,12 +54,12 @@ Proyecto práctico correspondiente al **Módulo 6**, enfocado en el diseño lóg
 
 | VLAN | Nombre de Zona | Subred | Gateway | Rango DHCP / Estático | Propósito |
 | :---: | :--- | :--- | :--- | :--- | :--- |
-| **10** | `LAN_EMPLEADOS` | `10.10.10.0/24` | `10.10.10.1` | `.50 - .150` (DHCP) / `.10 - .20` (Impresoras) | PCs de consultorios, recepción, administración e impresoras. |
-| **20** | `SERVIDORES` | `10.10.20.0/24` | `10.10.20.1` | `.10 - .30` (Estático) | Servidor de archivos e Historias Clínicas (HCE) y respaldos. |
-| **30** | `DMZ` | `10.10.30.0/24` | `10.10.30.1` | `.10` (Estático) | Servidor Web público expuesto a Internet mediante NAT/PAT. |
-| **40** | `INVITADOS` | `10.10.40.0/24` | `10.10.40.1` | `.20 - .200` (DHCP) | Wi-Fi para pacientes en sala de espera (solo salida a Internet). |
-| **50** | `IOT_CAMARAS` | `10.10.50.0/24` | `10.10.50.1` | `.10 - .30` (Estático) | Cámaras IP y NVR de videovigilancia interna. |
-| **99** | `GESTION` | `10.10.99.0/24` | `10.10.99.1` | `.10 - .20` (Estático) | Interfaces de administración (SSH/HTTPS) de Firewall, Switch y AP. |
+| **10** | `LAN_EMPLEADOS` | `10.10.10.0/24` | `10.10.10.1` | `.50 - .150` (DHCP) / `.10 - .20` (Impresoras) | PCs de consultorios, recepción, administración e impresoras |
+| **20** | `SERVIDORES` | `10.10.20.0/24` | `10.10.20.1` | `.10 - .30` (Estático) | Servidor de archivos e Historias Clínicas (HCE) y respaldos |
+| **30** | `DMZ` | `10.10.30.0/24` | `10.10.30.1` | `.10` (Estático) | Servidor Web público expuesto a Internet mediante NAT/PAT |
+| **40** | `INVITADOS` | `10.10.40.0/24` | `10.10.40.1` | `.20 - .200` (DHCP) | Wi-Fi para pacientes en sala de espera |
+| **50** | `IOT_CAMARAS` | `10.10.50.0/24` | `10.10.50.1` | `.10 - .30` (Estático) | Cámaras IP y NVR de videovigilancia interna |
+| **99** | `GESTION` | `10.10.99.0/24` | `10.10.99.1` | `.10 - .20` (Estático) | Interfaces de administración (SSH/HTTPS) de Firewall, Switch y AP |
 
 ### Matriz de Comunicación Inter-Zonas
 
@@ -102,18 +102,3 @@ Se implementó una topología reducida con arquitectura *Router-on-a-Stick* (`1 
   2. `PC-Invitado (10.10.40.20)` $\rightarrow$ `Servidor-HCE (10.10.20.10)`: **Bloqueado (Destination host unreachable / Administratively prohibited)**.
 
 ---
-
-## 7. Limitaciones y Mejoras Futuras (Fase 4)
-
-* **Sin redundancia física (Punto único de fallo):** El diseño contempla un único firewall y un único switch principal por restricciones de presupuesto PyME. *Mejora futura:* Implementar alta disponibilidad (HA Active/Passive) y enlaces troncales redundantes (EtherChannel).
-* **Factores humanos (Ingeniería social):** Las reglas de firewall no detienen a un empleado que entregue sus credenciales en un sitio de phishing. *Mejora futura:* Habilitar autenticación multifactor (MFA) y capacitación periódica.
-* **Tráfico cifrado (HTTPS):** Sin inspección SSL/TLS profunda (DPI), un malware oculto dentro de tráfico cifrado hacia Internet podría pasar inadvertido. *Mejora futura:* Implementar un proxy web con filtrado de categorías DNS/URL.
-
----
-
-## 8. Relación con el Módulo 6
-
-Este proyecto aplica directamente los conceptos desarrollados en el curso **Dispositivos de Red y Configuración Inicial**:
-* Diseño jerárquico y segmentación lógica mediante **VLANs (IEEE 802.1Q)** y enlaces troncales (*Trunking*).
-* Enrutamiento inter-VLAN (*Router-on-a-Stick*) y asignación dinámica/estática de direccionamiento IPv4.
-* Endurecimiento (*Hardening*) de dispositivos de red, segregación de planos de gestión y aplicación del principio de mínimo privilegio mediante **ACLs extendidas**.
