@@ -44,8 +44,6 @@ Proyecto práctico enfocado en el diseño lógico, segmentación mediante VLANs,
 
 ![Diagrama de Red Segura](diagramas/arquitectura-red-segura.png)
 
-> *El archivo fuente editable se encuentra disponible en [`diagramas/arquitectura-red-segura.drawio`](diagramas/arquitectura-red-segura.drawio).*
-
 ---
 
 ## 4. Plan de Direccionamiento y Matriz de Comunicación (Fase 2)
