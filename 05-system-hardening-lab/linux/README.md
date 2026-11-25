@@ -1,5 +1,5 @@
 
-# Hardening en Linux — Línea Base, Controles y Medición
+# Hardening en Linux - Línea Base, Controles y Medición
 
 ## 1. Objetivo y entorno
 
