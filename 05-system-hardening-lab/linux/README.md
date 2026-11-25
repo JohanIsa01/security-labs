@@ -11,10 +11,10 @@
 ## 2. Metodología
 
 1. **Snapshot inicial:** Captura del estado limpio de la VM antes de modificar configuraciones.
-2. **Fase 1 — Línea base ("Antes"):** Recolección de métricas de seguridad con Lynis (`hardening_index=60`), puertos en escucha, servicios habilitados (35 unidades), estado de firewall y cálculo de hashes SHA-256 de la evidencia.
-3. **Fase 2 — Aplicación de controles:** Ejecución documentada de mejoras de configuración (actualizaciones, firewall UFW, deshabilitación de `ModemManager.service` y `pcscd.socket`, revisión de privilegios y activación de `unattended-upgrades`).
-4. **Fase 3 — Medición ("Después"):** Reejecución de auditoría con Lynis (`hardening_index=65`), comprobación de sockets y servicios (`34` unidades habilitadas), generación de `hashes_despues.txt` y comparación cuantitativa.
-5. **Fase 5 — Análisis y lecciones aprendidas:** Registro de limitaciones, riesgos evitados y referencia a CIS Benchmarks.
+2. **Fase 1 - Línea base ("Antes"):** Recolección de métricas de seguridad con Lynis (`hardening_index=60`), puertos en escucha, servicios habilitados (35 unidades), estado de firewall y cálculo de hashes SHA-256 de la evidencia.
+3. **Fase 2 - Aplicación de controles:** Ejecución documentada de mejoras de configuración (actualizaciones, firewall UFW, deshabilitación de `ModemManager.service` y `pcscd.socket`, revisión de privilegios y activación de `unattended-upgrades`).
+4. **Fase 3 - Medición ("Después"):** Reejecución de auditoría con Lynis (`hardening_index=65`), comprobación de sockets y servicios (`34` unidades habilitadas), generación de `hashes_despues.txt` y comparación cuantitativa.
+5. **Fase 5 - Análisis y lecciones aprendidas:** Registro de limitaciones, riesgos evitados y referencia a CIS Benchmarks.
 
 ## 3. Línea base ("Antes") e integridad de evidencia
 
