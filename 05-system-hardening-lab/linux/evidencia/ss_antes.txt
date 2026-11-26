@@ -1,0 +1,2 @@
+Netid State  Recv-Q Send-Q                   Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0      [fe80::a00:27ff:fe90:f085]%eth0:546          [::]:*          
