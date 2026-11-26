@@ -1,8 +1,6 @@
 # Revisión de logs de eventos de seguridad en Windows
 
-Proyecto práctico del **Módulo 9: Protección de terminales**, curso *Seguridad de Terminales* (Cisco Networking Academy).
-
-Simulo actividad de autenticación en un equipo Windows aislado, la localizo en el registro de Seguridad, preservo el log como evidencia (hash SHA-256 y cadena de custodia) y reconstruyo la línea de tiempo, como en una investigación forense básica.
+Simulo actividad de autenticación en un equipo Windows aislado, la localizo en el registro de Seguridad, preservo el log como evidencia y reconstruyo la línea de tiempo
 
 ---
 
