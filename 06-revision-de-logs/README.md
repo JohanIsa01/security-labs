@@ -1,4 +1,4 @@
-# 06 · Revisión de logs de eventos de seguridad en Windows
+Revisión de logs de eventos de seguridad en Windows
 
 Proyecto práctico del **Módulo 9: Protección de terminales**, curso *Seguridad de Terminales* (Cisco Networking Academy).
 
