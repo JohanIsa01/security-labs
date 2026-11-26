@@ -1,0 +1,4 @@
+﻿"Hora","IdEvento","Cuenta","Equipo","TipoLogon","EstadoError","SubEstado","IPOrigen"
+"2026-11-26 17:44:51","4625","usuario_prueba","WIN10-LTSC","2","0xc000006d","0xc000006a","::1"
+"2026-11-26 17:45:13","4625","usuario_prueba","WIN10-LTSC","2","0xc000006d","0xc000006a","::1"
+"2026-11-26 17:45:17","4625","usuario_prueba","WIN10-LTSC","2","0xc000006d","0xc000006a","::1"
