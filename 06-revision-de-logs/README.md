@@ -18,7 +18,6 @@ Simulo actividad de autenticación en un equipo Windows aislado, la localizo en 
 |---|---|
 | Sistema | Windows 10 Enterprise LTSC (versión 10.0.17763.316) |
 | Equipo | `WIN10-LTSC`, máquina virtual en VirtualBox |
-| Fecha de la práctica | 26/11/2026 |
 | Herramientas | Directiva de seguridad local, `auditpol`, Visor de eventos, PowerShell, `runas` |
 
 > Todo se hizo en una máquina virtual propia, con cuentas de prueba creadas para la práctica. Las credenciales de prueba se omiten a propósito en esta documentación.
