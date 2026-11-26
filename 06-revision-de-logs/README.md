@@ -112,34 +112,6 @@ El archivo `.evtx` no se incluye en el repositorio; se publica su hash para veri
 
 ## Script de apoyo
 
-[`scripts/exportar-eventos-4625.ps1`](scripts/exportar-eventos-4625.ps1) extrae los eventos 4625 del registro de Seguridad, los exporta a CSV (hora, cuenta, tipo de inicio de sesión, código de error, origen) y calcula el hash del resultado. Requiere PowerShell como Administrador.
+[`scripts/exportar-eventos-4625.ps1`](scripts/exportar-eventos-4625.ps1) extrae los eventos 4625 del registro de Seguridad, los exporta a CSV (hora, cuenta, tipo de inicio de sesión, código de error, origen) y calcula el hash del resultado
 
 ---
-
-## Problemas encontrados y cómo los resolví
-
-- **Error `0x00000057` en `auditpol`:** el GUID de la subcategoría estaba mal copiado y, además, en PowerShell las llaves `{...}` deben ir entre comillas simples.
-- **`PathNotFound` en `Get-FileHash`:** intentaba calcular el hash antes de exportar el archivo y con una ruta incorrecta. Verifiqué la ruta real del `.evtx` antes de repetir el comando.
-- **Error tipográfico en `Start-Process`:** el cmdlet mal escrito produjo un `CommandNotFoundException`; lo corregí y repetí la ejecución.
-
-## Qué aprendí
-
-- La auditoría de Windows no registra todo por defecto: hay que activarla y comprobarla.
-- Cada acción deja rastro con un ID concreto, y cruzar horas con eventos es la base de una línea de tiempo.
-- Documentar errores y correcciones también es parte del trabajo forense.
-- Una evidencia sin hash ni cadena de custodia pierde valor.
-
-## Estructura del repositorio
-
-```text
-06-revision-de-logs/
-├── README.md
-├── capturas/
-│   ├── 01-politicas-auditoria.png
-│   ├── 02-creacion-usuario-y-eventos.png
-│   ├── 03-visor-eventos-seguridad.png
-│   ├── 03b-detalle-evento-4625.png
-│   └── 04-hash-sha256-evidencia.png
-└── scripts/
-    └── exportar-eventos-4625.ps1
-```
