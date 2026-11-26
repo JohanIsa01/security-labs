@@ -21,4 +21,3 @@ Laboratorio práctico de endurecimiento básico y medición de superficie de ata
 ## Limitaciones y nota de privacidad
 
 - **Limitaciones:** Algunas mejoras sugeridas por Lynis (como endurecimiento adicional de kernel/AppArmor o afinado profundo de parámetros del sistema) quedan como mejora futura; los sockets en escucha no muestran servicios innecesarios expuestos tras activar UFW.
-- **Nota sobre reportes redactados:** Los archivos `.dat` de Lynis en `linux/evidencia/` están redactados para omitir datos sensibles del entorno real (usuario y referencias de red/ISP) antes de publicarse en el repositorio.
