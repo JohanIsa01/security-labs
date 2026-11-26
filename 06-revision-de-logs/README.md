@@ -27,7 +27,8 @@ Simulo actividad de autenticación en un equipo Windows aislado, la localizo en 
 ### 1. Activar la auditoría
 Por defecto varias subcategorías de auditoría estaban en *No configurado*. Las activé (éxito y error) para inicio de sesión, administración de cuentas de usuario y creación de procesos, usando la Directiva de seguridad local y `auditpol`. Verifiqué el resultado con `auditpol /get /category:*`.
 
-![Políticas de auditoría](capturas/01-politicas-auditoria.png)
+![Políticas de auditoría](capturas/01.1-politicas-auditoria.png)
+![Políticas de auditoría](capturas/01.2-politicas-auditoria.png)
 
 ### 2. Generar eventos controlados
 Anoté la hora de cada acción para poder cruzarla después con el log:
