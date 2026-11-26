@@ -20,8 +20,6 @@ Simulo actividad de autenticación en un equipo Windows aislado, la localizo en 
 | Equipo | `WIN10-LTSC`, máquina virtual en VirtualBox |
 | Herramientas | Directiva de seguridad local, `auditpol`, Visor de eventos, PowerShell, `runas` |
 
-> Todo se hizo en una máquina virtual propia, con cuentas de prueba creadas para la práctica. Las credenciales de prueba se omiten a propósito en esta documentación.
-
 ---
 
 ## Metodología
