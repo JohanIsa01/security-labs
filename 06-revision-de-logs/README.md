@@ -44,11 +44,11 @@ Anoté la hora de cada acción para poder cruzarla después con el log:
 ### 3. Localizar los eventos en el registro de Seguridad
 En el Visor de eventos (*Registros de Windows → Seguridad*) identifiqué los eventos generados.
 
-![Visor de eventos, registro de Seguridad](capturas/03-visor-eventos-seguridad.png)
+![Visor de eventos, registro de Seguridad](capturas/03.1-visor-eventos-seguridad.png)
 
 Detalle de un evento 4625 (inicio de sesión fallido):
 
-![Detalle del evento 4625](capturas/03b-detalle-evento-4625.png)
+![Detalle del evento 4625](capturas/03.2-detalle-evento-4625.png)
 
 ### 4. Preservar la evidencia
 Exporté el registro de Seguridad a un archivo `.evtx` y calculé su hash SHA-256 para poder demostrar después que no fue alterado.
