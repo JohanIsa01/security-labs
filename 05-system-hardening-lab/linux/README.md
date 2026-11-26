@@ -8,7 +8,7 @@ Laboratorio práctico de endurecimiento básico y medición de superficie de ata
 - **Herramientas:** `lynis`, `ss`, `systemctl`, `ufw`, `unattended-upgrades`, `sha256sum`.
 - **Windows:** Marcado como **pendiente** al no disponer de una VM de Windows en el entorno actual.
 
-## Resultados (Linux — Antes vs. Después)
+## Resultados (Linux - Antes vs. Después)
 
 | Métrica | Antes | Después | Notas |
 | :--- | :---: | :---: | :--- |
