@@ -19,6 +19,6 @@
 
 | Etapa | Entregado por | Recibido por | Motivo y verificación de integridad |
 | :--- | :--- | :--- | :--- |
-| Recolección inicial | Sistema operativo de la VM | [JohanIsa01] | Extracción ordenada de red, procesos y registros de eventos en `C:\Evidencia_IR\` |
+| Recolección inicial | Sistema operativo de la VM | JohanIsa01 | Extracción ordenada de red, procesos y registros de eventos en `C:\Evidencia_IR\` |
 | Cálculo de hash | Archivos de evidencia en `C:\Evidencia_IR\` | `hashes_sha256.txt` (PowerShell) | Generación de hashes SHA-256 mediante `Get-FileHash` sin alterar archivos origen |
 | Resguardo de laboratorio | VM aislada en VirtualBox | Carpeta del repositorio (`simulacion/`) | Copia de archivos, capturas y registro de hashes para análisis y documentación |
