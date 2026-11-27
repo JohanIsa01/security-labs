@@ -1,6 +1,6 @@
 # Bitácora Técnica de Simulación (IR-SIM-001)
 
-- **Caso:** IR-SIM-001 — Detección de archivo de prueba EICAR en endpoint Windows
+- **Caso:** IR-SIM-001 - Detección de archivo de prueba EICAR en endpoint Windows
 - **Entorno:** Máquina virtual Windows aislada en VirtualBox
 - **Rol:** Analista de soporte de Nivel 1
 - **Objetivo:** Ejecutar el playbook de respuesta a incidentes (NIST SP 800-61), aplicar contención sin apagar el equipo, recolectar evidencia por orden de volatilidad y validar integridad mediante SHA-256.
