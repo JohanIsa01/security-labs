@@ -2,8 +2,6 @@
 
 Proyecto práctico del **Módulo 10 — Principios, prácticas y procesos de ciberseguridad**, enfocado en llevar la teoría de respuesta a incidentes a una simulación real en laboratorio virtual, conectando el manejo del incidente con los fundamentos de forense digital.
 
-> **Aviso de laboratorio:** Todo este trabajo se realizó en un entorno propio, controlado y aislado mediante una máquina virtual (VirtualBox), usando únicamente la cadena de prueba inofensiva **EICAR** para activar alertas de seguridad. No se utilizó malware real ni se intervino ningún sistema externo.
-
 ## Objetivo
 
 Construir un flujo de respuesta a incidentes claro y aplicable —basado en **NIST SP 800-61**— respaldado por un diagrama de decisiones, una simulación práctica en Windows y documentación forense básica (orden de volatilidad, hashes SHA-256, cadena de custodia y bitácora).
